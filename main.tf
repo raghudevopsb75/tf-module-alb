@@ -74,8 +74,13 @@ resource "aws_lb_listener" "listener-http-private" {
   protocol          = "HTTP"
 
   default_action {
-    type             = "forward"
-    target_group_arn = var.tg_arn
+    type = "fixed-response"
+
+    fixed_response {
+      content_type = "text/plain"
+      message_body = "Invalid Page"
+      status_code  = "404"
+    }
   }
 }
 
@@ -90,8 +95,13 @@ resource "aws_lb_listener" "listener-https" {
 
 
   default_action {
-    type             = "forward"
-    target_group_arn = var.tg_arn
+    type = "fixed-response"
+
+    fixed_response {
+      content_type = "text/plain"
+      message_body = "Invalid Page"
+      status_code  = "404"
+    }
   }
 }
 
