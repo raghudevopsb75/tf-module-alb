@@ -7,10 +7,10 @@ output "alb_arn" {
 }
 
 output "private_listener_arn" {
-  value = aws_lb_listener.listener-http-private.arn
+  value = aws_lb_listener.listener-http-private[0].arn
 }
 
 output "public_listener_arn" {
-  value = aws_lb_listener.listener-http-public.arn
+  value = aws_lb_listener.listener-http-public[0].arn
 }
 
